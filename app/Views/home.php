@@ -29,10 +29,11 @@
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form action="" class="form">
-									<input class="email" type="email" name="email" id="" placeholder="Correo Electrónico" required>
-									<input class="password" type="password" name="password" id="" placeholder="Contraseña" required>
-									<button type="submit" class="btn-login">Iniciar Sesión</button>
+								<form action="" class="form" onsubmit="return validationLogin(event)">
+									<input class="email" type="email" name="email" id="emailLogin" placeholder="Correo Electrónico" required >
+									<input class="password" type="password" name="password" id="passwordLogin" placeholder="Contraseña" required >
+									<span id="warning" class="text-danger mt-3"></span>
+									<button type="submit" class="btn-login" >Iniciar Sesión</button>
 								</form>
 							</div>
 							<div class="modal-footer">
@@ -58,17 +59,18 @@
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form action="" class="form registro">
-									<input type="text" name="name" id="" class="name" placeholder="Nombre Completo" required>
-									<input type="text" name="country" id="" class="country"  placeholder="País" required>
-									<input type="text" name="city" id="" class="city"  placeholder="Ciudad" required>
-									<input type="email" name="email" id="" class="mail"  placeholder="Correo" required>
-									<input type="password" name="password" id="" class="pass"  placeholder="Contraseña" required>
-									<select class="form-select form-select-sm" aria-label=".form-select-sm example" required>
+								<form action="" class="form registro" onsubmit="return validationSignUp(event)">
+									<input type="text" name="name" id="name" class="name" placeholder="Nombre Completo" required>
+									<input type="text" name="country" id="country" class="country"  placeholder="País" required>
+									<input type="text" name="city" id="city" class="city"  placeholder="Ciudad" required>
+									<input type="email" name="email" id="emailSignUp" class="mail"  placeholder="Correo" required>
+									<input type="password" name="password" id="passwordSignUp" class="pass"  placeholder="Contraseña" required>
+									<select class="form-select form-select-sm" aria-label=".form-select-sm example" id="rol" required>
 										<option selected>Rol</option>
 										<option value="1">anfitrión</option>
 										<option value="2">Invitado</option>
 									</select>
+									<span id="warningSignUp" class="text-danger mt-3"></span>
 									<button type="submit" class="btn-login">Regístrate</button>
 								</form>
 							</div>
@@ -109,6 +111,7 @@
 		</div>
 	</main>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+	<script src="<?php echo base_url(); ?>/public/assets/js/validationLogin.js"></script>
 </body>
 
 </html>
