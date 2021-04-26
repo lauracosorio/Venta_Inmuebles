@@ -29,15 +29,12 @@
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-							<!--  -->
-								<form 
-								action="<?php echo base_url().'/perfil' ?>"
-							
-								 method="POST" class="form" onsubmit="return validationLogin(event)">
-									<input class="email" type="email" name="email" id="emailLogin" placeholder="Correo Electrónico" required >
-									<input class="password" type="password" name="password" id="passwordLogin" placeholder="Contraseña" required >
+								<!--  -->
+								<form action="<?php echo base_url() . '/perfil' ?>" method="POST" class="form" onsubmit="return validationLogin(event)">
+									<input class="email" type="email" name="email" id="emailLogin" placeholder="Correo Electrónico" required>
+									<input class="password" type="password" name="password" id="passwordLogin" placeholder="Contraseña" required>
 									<span id="warning" class="text-danger mt-3"></span>
-									<button type="submit" class="btn-login" >Iniciar Sesión</button>
+									<button type="submit" class="btn-login">Iniciar Sesión</button>
 								</form>
 							</div>
 							<div class="modal-footer">
@@ -63,13 +60,13 @@
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form action="" class="form registro" onsubmit="return validationSignUp(event)">
+								<form action="<?php echo base_url().'/dashboard'?>" method="POST" class="form registro" onsubmit="return validationSignUp(event)">
 									<input type="text" name="name" id="name" class="name" placeholder="Nombre Completo" required>
-									<input type="text" name="country" id="country" class="country"  placeholder="País" required>
-									<input type="text" name="city" id="city" class="city"  placeholder="Ciudad" required>
-									<input type="email" name="email" id="emailSignUp" class="mail"  placeholder="Correo" required>
-									<input type="password" name="password" id="passwordSignUp" class="pass"  placeholder="Contraseña" required>
-									<select class="form-select form-select-sm" aria-label=".form-select-sm example" id="rol" required>
+									<input type="text" name="country" id="country" class="country" placeholder="País" required>
+									<input type="text" name="city" id="city" class="city" placeholder="Ciudad" required>
+									<input type="email" name="email" id="emailSignUp" class="mail" placeholder="Correo" required>
+									<input type="password" name="password" id="passwordSignUp" class="pass" placeholder="Contraseña" required>
+									<select class="form-select form-select-sm" aria-label=".form-select-sm example" id="rol" name="rol" required>
 										<option selected>Rol</option>
 										<option value="1">anfitrión</option>
 										<option value="2">Invitado</option>

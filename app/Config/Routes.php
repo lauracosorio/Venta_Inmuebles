@@ -38,6 +38,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/guest_view', 'Home::guest_view');
 $routes->get('/host_view', 'Home::host_view');
 $routes->post('/perfil','Home::getUser');
+$routes->post('/dashboard', 'Home::registerUser');
 
 /*
  * --------------------------------------------------------------------
