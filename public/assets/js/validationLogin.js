@@ -2,7 +2,7 @@
 
 
 function validationLogin(e) {
-    e.preventDefault();
+    // e.preventDefault();
 
     let warning = document.getElementById("warning")
     let email = document.getElementById("emailLogin").value;
@@ -11,7 +11,7 @@ function validationLogin(e) {
     if (!/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(email)) {
         warning.innerHTML = "El correo ingresado no es válido"
     } else if (password === null || password.length < 6) {
-        warning.innerHTML = "El correo y/o la contraseña están erróneos"
+        warning.innerHTML = "La contraseña debe tener mínimo 6 caracteres"
     } else {
         warning.innerHTML = ""
          //hacer el push a la página deseada 
@@ -19,7 +19,7 @@ function validationLogin(e) {
 }
 
 function validationSignUp(e) {
-    e.preventDefault();
+    // e.preventDefault();
 
     let warning = document.getElementById("warningSignUp")
     let name = document.getElementById("name").value;
@@ -42,7 +42,8 @@ function validationSignUp(e) {
     } else if (rol === "Rol") {
         warning.innerHTML = "Debe escoger un rol válido"
     }else {
-        warning.innerHTML = ""
+        // warning.innerHTML = ""
         //hacer el push a la página deseada 
+        console.error(object)
     }
 }
