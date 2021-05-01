@@ -5,14 +5,14 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/home.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/index.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 	<title>Alquiler de Inmuebles</title>
 </head>
 
 <body>
 	<header class="header">
-		<h1>Alquila</h1>
+		<h1 class="alquila">Alquila</h1>
 		<ul class="header-menu">
 			<li>
 				<!-- Button trigger modal -->
@@ -25,12 +25,12 @@
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
-								<p class="modal-title text-center" id="iniciarSesion">Iniciar Sesión</p>
+								<p class="modal-title" id="iniciarSesion">Iniciar Sesión</p>
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
 								<!--  -->
-								<form action="<?php echo base_url() . '/perfil' ?>" method="POST" class="form" onsubmit="return validationLogin(event)">
+								<form action="<?php echo base_url() . '/signIn' ?>" method="POST" class="form" onsubmit="return validationLogin(event)">
 									<input class="email" type="email" name="email" id="emailLogin" placeholder="Correo Electrónico" required>
 									<input class="password" type="password" name="password" id="passwordLogin" placeholder="Contraseña" required>
 									<span id="warning" class="text-danger mt-3"></span>
@@ -60,7 +60,7 @@
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form action="<?php echo base_url().'/dashboard'?>" method="POST" class="form registro" onsubmit="return validationSignUp(event)">
+								<form action="<?php echo base_url() . '/dashboard' ?>" method="POST" class="form registro" onsubmit="return validationSignUp(event)">
 									<input type="text" name="name" id="name" class="name" placeholder="Nombre Completo" required>
 									<input type="text" name="country" id="country" class="country" placeholder="País" required>
 									<input type="text" name="city" id="city" class="city" placeholder="Ciudad" required>
@@ -89,7 +89,7 @@
 	<main>
 		<section class="main">
 			<div class="main-title">
-				<h1>Dejanos encontrar el apartamento de tus sueños </h1>
+				<p>Dejanos encontrar el apartamento de tus sueños </p>
 				<h3>O convierte en el mejor anfitrión</h3>
 			</div>
 			<div class="main-grid">
@@ -106,13 +106,44 @@
 				<img class="imagen-i" src="https://image.freepik.com/foto-gratis/padre-e-hijo-tiro-completo-piso_23-2148884741.jpg" alt="">
 			</div>
 		</section>
-		<hr />
-		<div class="main-cards">
+		<hr class="hr_index" />
+		<div class="main-cards m-5">
+			<p class="p-5 m-0 index_aptos">Descubre los Alojamientos</p>
+		<div class="container">
+        
+        <?php if ($aparments === array()) {
+            echo "<h5>No tienes apartamentos registrados</h5>";
+        } ?> <?php if ($aparments !== array()) {
+                    echo " <div class='row row-cols-1 row-cols-md-3 g-4'>";
+                }
+                ?>
+        <?php
+        foreach ($aparments as $aparment) : ?>
 
+            <?php $updateRoute = base_url() . "/update-apto?id={$aparment['id_apartamentos']}"; ?>
+
+            <div class='col mt-5'>
+                <div class='card'>
+                    <img src=<?php echo $aparment['imagen_destacada'] ?> class='card-img-top'>
+                    <div class='card-body'>
+                        <h5 class='card-title'>
+                            <?php echo $aparment['ciudad'] . ' - ' . $aparment['pais'] ?>
+                        </h5>
+                        <p class='m-0'> <strong>Dirección:</strong> <?php echo $aparment['direccion'] ?></p>
+                        <p class='m-0'> <strong>Habitaciones:</strong> <?php echo $aparment['numero_habitaciones'] ?></p>
+                        <p> <strong>Reseña:</strong> <?php echo $aparment['resena'] ?></p>
+                        <h5 class='text-end mb-4'>
+                            <?php echo $aparment['valor_noche'] ?> COP/noche
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach ?>
+    </div>
 		</div>
 	</main>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-	<script src="<?php echo base_url(); ?>/assets/js/validationLogin.js"></script>
+	<script src="<?php echo base_url(); ?>/assets/js/validation.js"></script>
 </body>
 
 </html>

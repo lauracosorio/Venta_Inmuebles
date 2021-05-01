@@ -35,10 +35,15 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/guest_view', 'Home::guest_view');
+$routes->post('/signIn', 'Home::signIn');
 $routes->get('/host_view', 'Home::host_view');
-$routes->post('/perfil','Home::getUser');
-$routes->post('/dashboard', 'Home::registerUser');
+$routes->post('/registroApto', 'AptoController::registerApto');
+$routes->get('/delete-apto', 'AptoController::deleteApto');
+$routes->post('/update-apto', 'AptoController::updateApto');
+$routes->post('/update', 'AptoController::update');
+$routes->get('/profile', 'PerfilController::profile');
+$routes->post('/updateProfile', 'PerfilController::updateProfile');
+$routes->get('/signOut', 'Home::signOut');
 
 /*
  * --------------------------------------------------------------------
