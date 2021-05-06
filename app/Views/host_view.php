@@ -51,7 +51,8 @@
         <?php
         foreach ($aparments as $aparment) : ?>
 
-            <?php $updateRoute = base_url() . "/update-apto?id={$aparment['id_apartamentos']}"; ?>
+            <?php $updateRoute = base_url() . "/updateApto?id={$aparment['id_apartamentos']}"; ?>
+            <?php $deleteRoute = base_url() . "/deleteApto?id={$aparment['id_apartamentos']}"; ?>
 
             <div class='col mt-5'>
                 <div class='card'>
@@ -78,16 +79,14 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                    <?php var_dump($aparment['id_apartamentos'])  ?>
-                                        <form action="<?php echo base_url()?>/update-apto?id=<?php echo($aparment['id_apartamentos'])?>" method="POST" class="form registro" onsubmit="return registerApto()">
-                                        
-                                            <textarea class="ciudad" type="text" name="ciudad" id="ciudad" placeholder="Ciudad" rows="1" required><?php echo $aparment['ciudad'] ?></textarea>
+                                    <!-- <?php var_dump($aparment['id_apartamentos'])  ?> -->
+                                        <form action="<?php echo $updateRoute ?>" method="POST" class="form registro" onsubmit="return registerApto()">
+                                            <input class="ciudad" type="text" name="ciudad" id="ciudad" placeholder="Ciudad" value='<?php echo $aparment['ciudad'] ?>' required>
                                             <input class="pais" type="text" name="pais" id="pais" placeholder="País" value=<?php echo $aparment['pais'] ?> required>
-                                            <textarea class="direccion" type="text" name="direccion" id="direccion" placeholder="Dirección" rows="1" required><?php echo $aparment['direccion'] ?></textarea>
-                                            <!-- <input class="ubicacion" type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación" required> -->
+                                            <input class="direccion" type="text" name="direccion" id="direccion" placeholder="Dirección" value='<?php echo $aparment['direccion'] ?>' required>
                                             <input class="habitaciones" type="text" name="habitaciones" id="habitaciones" placeholder="Número de Habitaciones" value=<?php echo $aparment['numero_habitaciones'] ?> required>
                                             <input class="valor" type="text" name="valor" id="valor" placeholder="Valor por Noche" value=<?php echo $aparment['valor_noche'] ?> required>
-                                            <textarea class="resena" type="text" name="resena" id="resena" placeholder="Reseña del Apartamento" rows="1"><?php echo $aparment['resena'] ?></textarea>
+                                            <input class="resena" type="text" name="resena" id="resena" value='<?php echo $aparment['resena'] ?>' placeholder="Reseña del Apartamento" rows="1">
                                             <input class="imagen" type="text" name="imagen" id="imagen" placeholder="Agregue la URL de la Imagen" value=<?php echo $aparment['imagen_destacada'] ?>>
                                             <span id="warning" class="text-danger mt-3"></span>
                                             <button type="submit" class="btn-login" name="updateButton">Actualizar Apartamento</button>
@@ -97,7 +96,7 @@
                             </div>
                         </div>
 
-                        <a href='' class='btn btn-danger'>Eliminar</a>
+                        <a href='<?php echo $deleteRoute ?>' class='btn btn-danger'>Eliminar</a>
                     </div>
                 </div>
             </div>

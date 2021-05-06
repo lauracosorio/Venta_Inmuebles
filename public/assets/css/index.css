@@ -469,10 +469,10 @@ main h5 {
   list-style: none;
   padding: 10px;
   position: absolute;
-  top: 70px;
-  right: 80px;
+  top: 190px;
+  left: 80px;
   z-index: 1;
-  width: 120px;
+  width: 130px;
   text-align: end;
   margin: 0px 0px 0px -14px;
   background-color: var(--grey-white);
@@ -616,6 +616,11 @@ main h5 {
     flex-wrap: nowrap;
     padding: 3%;
   }
+
+  .nav-list ul {
+    top: 70px;
+    left: 650px;
+  }
   
 }
 
@@ -679,6 +684,11 @@ main h5 {
   .column3 {
     flex-grow: 1;
   } 
+
+  .nav-list ul {
+    top: 70px;
+    left: 900px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -710,5 +720,10 @@ main h5 {
     top: 17rem;
     font-size: 1.5rem;
     width: 17rem;
+  }
+
+  .nav-list ul {
+    top: 70px;
+    left: 1330px;
   }
 }

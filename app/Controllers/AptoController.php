@@ -56,7 +56,7 @@ class AptoController extends BaseController
             $userData = $userModel->getUser($email);
             $idUser = $session->get('id');
             $aptoData = $aptoModel->getApto($idUser);
-            // echo view('/host_view', array('user' => $userData));
+            
             echo view('layouts/header', array('user' => $userData));
             echo view('host_view', array('aparments' => $aptoData));
             echo view('layouts/footer');
@@ -67,7 +67,6 @@ class AptoController extends BaseController
     {
         $request = \Config\Services::request();
         $aptoModel = new AptoModel();
-        $userModel = new UserModel();
 
         $ciudad = $request->getPost('ciudad');
         $pais = $request->getPost('pais');
@@ -76,71 +75,23 @@ class AptoController extends BaseController
         $valor = $request->getPost('valor');
         $resena = $request->getPost('resena');
         $imagen = $request->getPost('imagen');
-
-        $session = session();
-        $email = $session->get('email');
-        $userData = $userModel->getUser($email);
-        $idUser = $session->get('id');
-        $aptoData = $aptoModel->getUserApto($idUser);
         $idApto = $request->getGet('id');
-        $aptoInfo = $aptoModel->getApto($idApto);
 
-       // $aptoModel->updateApto($idApto, $ciudad, $pais, $direccion, $habitaciones, $valor, $resena, $imagen);
+       $aptoModel->updateApto($idApto, $ciudad, $pais, $direccion, $habitaciones, $valor, $resena, $imagen);
 
-        echo $aptoInfo;
-        echo view('layouts/header', array('user' => $userData));
-        echo view('host_view', array(
-            'aparments' => $aptoData,
-            'aptoInfo' => $aptoInfo
-        ));
-        echo view('layouts/footer');
-
-        // $session = session();
-        // $email = $session->get('email');
-        // $userData = $userModel->getUser($email);
-        // $idUser = $session->get('id');
-        // $aptoData = $aptoModel->getApto($idUser);
-        // $idApto = $request->getGet('id');
-        // $aptoInfo = $aptoModel->getAptoId($idApto);
-
-        // echo view('layouts/header', array('user' => $userData));
-        // echo view('host_view', array(
-        //     'aparments' => $aptoData,
-        //     'aptoInfo' => $aptoInfo
-        // ));
-        // echo view('layouts/footer');
+       return redirect()->to('host_view');
     }
 
-    public function update()
+    public function deleteApto()
     {
         $request = \Config\Services::request();
         $aptoModel = new AptoModel();
-        $userModel = new UserModel();
 
-        $ciudad = $request->getPost('ciudad');
-        $pais = $request->getPost('pais');
-        $direccion = $request->getPost('direccion');
-        $habitaciones = $request->getPost('habitaciones');
-        $valor = $request->getPost('valor');
-        $resena = $request->getPost('resena');
-        $imagen = $request->getPost('imagen');
-
-        $session = session();
-        $email = $session->get('email');
-        $userData = $userModel->getUser($email);
-        $idUser = $session->get('id');
-        $aptoData = $aptoModel->getUserApto($idUser);
         $idApto = $request->getGet('id');
-        $aptoInfo = $aptoModel->getApto($idApto);
 
-        $aptoModel->updateApto($idApto, $ciudad, $pais, $direccion, $habitaciones, $valor, $resena, $imagen);
-
-        echo view('layouts/header', array('user' => $userData));
-        echo view('host_view', array(
-            'aparments' => $aptoData,
-            'aptoInfo' => $aptoInfo
-        ));
-        echo view('layouts/footer');
-        // return redirect()->to('host_view');
+       $aptoModel->deleteApto($idApto);
+       return redirect()->to('host_view');
     }
+
+
 }

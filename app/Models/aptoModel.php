@@ -36,7 +36,13 @@ class AptoModel extends Model
     }
 
     function updateApto($idApto, $ciudad, $pais, $direccion, $habitaciones, $valor, $resena, $imagen){
-        $sql = "UPDATE apartamentos SET ciudad ='{$ciudad}', pais = '{$pais}', direccion = '{$direccion}', numero_habitaciones = '{$habitaciones}', valor_noche = '{$valor}', resena = '{$resena}', imagen_destacada = '{$imagen}' WHERE id_apartamentos={$idApto}";
+        $sql = "UPDATE apartamentos SET ciudad ='{$ciudad}', pais = '{$pais}', direccion = '{$direccion}', numero_habitaciones = '{$habitaciones}', valor_noche = '{$valor}', resena = '{$resena}', imagen_destacada = '{$imagen}' WHERE id_apartamentos='{$idApto}'";
+
+        $this->db->query($sql);
+    }
+
+    function deleteApto($idApto){
+        $sql = "DELETE FROM apartamentos WHERE id_apartamentos='{$idApto}'";
 
         $this->db->query($sql);
     }
