@@ -60,7 +60,7 @@
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form action="<?php echo base_url() . '/dashboard' ?>" method="POST" class="form registro" onsubmit="return validationSignUp(event)">
+								<form action="<?php echo base_url() . '/signUp' ?>" method="POST" class="form registro" onsubmit="return validationSignUp(event)">
 									<input type="text" name="name" id="name" class="name" placeholder="Nombre Completo" required>
 									<input type="text" name="country" id="country" class="country" placeholder="País" required>
 									<input type="text" name="city" id="city" class="city" placeholder="Ciudad" required>

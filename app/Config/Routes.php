@@ -36,7 +36,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->post('/signIn', 'Home::signIn');
+$routes->post('/signUp', 'Home::signUp');
 $routes->get('/host_view', 'Home::host_view');
+$routes->get('/guest_view', 'Home::guest_view');
 $routes->post('/registroApto', 'AptoController::registerApto');
 $routes->get('/deleteApto', 'AptoController::deleteApto');
 $routes->post('/updateApto', 'AptoController::updateApto');

@@ -22,7 +22,11 @@
                     if ($user[0] === "" || $user[0] === NULL) {
                         echo " <a href=" . base_url() . "/>Alquila</a></h1>";
                     } else {
-                        echo "<a href=" . base_url() . "/host_view>Alquila</a></h1>";
+                        if($user[0]['rol'] === '1'){
+                            echo "<a href=" . base_url() . "/host_view>Alquila</a></h1>";
+                        }else {
+                            echo "<a href=" . base_url() . "/guest_view>Alquila</a></h1>";
+                        }
                     }
                     ?>
 

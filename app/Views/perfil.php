@@ -5,7 +5,7 @@
         </div>
         <div class="card-body">
             <div>
-                <img class="mb-4" src="<?php echo $user[0]['foto_perfil'] ?>" alt="">
+                <img class="perfil-img mb-4" src="<?php echo $user[0]['foto_perfil'] ?>" alt="">
             </div>
             <h5 class="card-title"><strong> <?php echo $user[0]['email'] ?></strong></h5>
             <p class="card-text"><strong>Biografía: </strong><?php echo $user[0]['biografia'] ?></p>
