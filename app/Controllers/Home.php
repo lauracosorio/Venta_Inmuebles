@@ -184,7 +184,7 @@ class Home extends BaseController
 			$userData = $userModel->getUser($email);
 
 			$idUser = $session->get('id');
-			$aptoData = $aptoModel->getApto($idUser);
+			$aptoData = $aptoModel->getAllAptos();
 			// var_dump($aptoData);
 			echo view('layouts/header', array('user' => $userData));
 			echo view('guest_view', array('aparments' => $aptoData));

@@ -10,9 +10,8 @@
 
     <h2 class="m-5 text-center texto">Apartamentos Disponibles</h2>
     <div class="container">
-        
         <?php if ($aparments === array()) {
-            echo "<h5>No tienes apartamentos registrados</h5>";
+            echo "<h5>No hay apartamentos disponibles </h5>";
         } ?> <?php if ($aparments !== array()) {
                     echo " <div class='row row-cols-1 row-cols-md-3 g-4'>";
                 }
@@ -36,6 +35,11 @@
                         <h5 class='text-end mb-4'>
                             <?php echo $aparment['valor_noche'] ?> COP/noche
                         </h5>
+                        <div style="margin:5px auto;">
+                            <center>
+                                <?php echo $aparment['dir_google_maps'] ?>
+                            </center>
+                        </div>
                         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#update<?php echo $aparment['id_apartamentos'] ?>">
                             Alquilar
                         </button>

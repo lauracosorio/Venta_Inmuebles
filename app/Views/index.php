@@ -135,6 +135,11 @@
                         <h5 class='text-end mb-4'>
                             <?php echo $aparment['valor_noche'] ?> COP/noche
                         </h5>
+						<div style="margin:5px auto;">
+                            <center>
+                                <?php echo $aparment['dir_google_maps'] ?>
+                            </center>
+                        </div>
                     </div>
                 </div>
             </div>

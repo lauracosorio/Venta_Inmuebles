@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\AptoModel;
 use App\Models\UserModel;
+use CodeIgniter\HTTP\Request;
 
 class AptoController extends BaseController
 {
@@ -36,6 +37,7 @@ class AptoController extends BaseController
         $ciudad = $request->getPost('ciudad');
         $pais = $request->getPost('pais');
         $direccion = $request->getPost('direccion');
+        $dir_google_maps =$request->getPost('ubicacion');
         $habitaciones = $request->getPost('habitaciones');
         $valor = $request->getPost('valor');
         $resena = $request->getPost('resena');
@@ -52,7 +54,7 @@ class AptoController extends BaseController
             echo view('layouts/footer');
         } else {
             // echo "Registrando Apartamento" . $idUser . $ciudad . $pais . $direccion . $habitaciones . $valor . $resena . $imagen;
-            $aptoModel->registerApto($idUser, $ciudad, $pais, $direccion, $habitaciones, $valor, $resena, $imagen);
+            $aptoModel->registerApto($idUser, $ciudad, $pais, $direccion, $dir_google_maps, $habitaciones, $valor, $resena, $imagen);
             $userData = $userModel->getUser($email);
             $idUser = $session->get('id');
             $aptoData = $aptoModel->getApto($idUser);
@@ -71,13 +73,14 @@ class AptoController extends BaseController
         $ciudad = $request->getPost('ciudad');
         $pais = $request->getPost('pais');
         $direccion = $request->getPost('direccion');
+        $dir_google_maps = $request->getPost('ubicacion');
         $habitaciones = $request->getPost('habitaciones');
         $valor = $request->getPost('valor');
         $resena = $request->getPost('resena');
         $imagen = $request->getPost('imagen');
         $idApto = $request->getGet('id');
 
-       $aptoModel->updateApto($idApto, $ciudad, $pais, $direccion, $habitaciones, $valor, $resena, $imagen);
+       $aptoModel->updateApto($idApto, $ciudad, $pais, $direccion, $dir_google_maps, $habitaciones, $valor, $resena, $imagen);
 
        return redirect()->to('host_view');
     }

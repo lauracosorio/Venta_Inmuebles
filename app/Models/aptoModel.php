@@ -28,15 +28,15 @@ class AptoModel extends Model
         return $apto->getResultArray();
     }
 
-    function registerApto($idUser, $ciudad, $pais, $direccion, $habitaciones, $valor, $resena, $imagen)
+    function registerApto($idUser, $ciudad, $pais, $direccion, $dir_google_maps, $habitaciones, $valor, $resena, $imagen)
     {
-        $sql = "INSERT INTO apartamentos (id_usuario, ciudad, pais, direccion, numero_habitaciones, valor_noche, resena, imagen_destacada) VALUES ('{$idUser}','{$ciudad}', '{$pais}', '{$direccion}', '{$habitaciones}', '{$valor}', '{$resena}', '{$imagen}')";
+        $sql = "INSERT INTO apartamentos (id_usuario, ciudad, pais, direccion,dir_google_maps, numero_habitaciones, valor_noche, resena, imagen_destacada) VALUES ('{$idUser}','{$ciudad}', '{$pais}', '{$direccion}', '{$dir_google_maps}','{$habitaciones}', '{$valor}', '{$resena}', '{$imagen}')";
 
         $this->db->query($sql);
     }
 
-    function updateApto($idApto, $ciudad, $pais, $direccion, $habitaciones, $valor, $resena, $imagen){
-        $sql = "UPDATE apartamentos SET ciudad ='{$ciudad}', pais = '{$pais}', direccion = '{$direccion}', numero_habitaciones = '{$habitaciones}', valor_noche = '{$valor}', resena = '{$resena}', imagen_destacada = '{$imagen}' WHERE id_apartamentos='{$idApto}'";
+    function updateApto($idApto, $ciudad, $pais, $direccion, $dir_google_maps, $habitaciones, $valor, $resena, $imagen){
+        $sql = "UPDATE apartamentos SET ciudad ='{$ciudad}', pais = '{$pais}', direccion = '{$direccion}', dir_google_maps= '{$dir_google_maps}', numero_habitaciones = '{$habitaciones}', valor_noche = '{$valor}', resena = '{$resena}', imagen_destacada = '{$imagen}' WHERE id_apartamentos='{$idApto}'";
 
         $this->db->query($sql);
     }

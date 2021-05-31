@@ -23,7 +23,7 @@
                                     <input class="ciudad" type="text" name="ciudad" id="ciudad" placeholder="Ciudad" required>
                                     <input class="pais" type="text" name="pais" id="pais" placeholder="País" required>
                                     <input class="direccion" type="text" name="direccion" id="direccion" placeholder="Dirección" required>
-                                    <!-- <input class="ubicacion" type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación" required> -->
+                                    <input class="ubicacion" type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación en Google Maps" required>
                                     <input class="habitaciones" type="text" name="habitaciones" id="habitaciones" placeholder="Número de Habitaciones" required>
                                     <input class="valor" type="text" name="valor" id="valor" placeholder="Valor por Noche" required>
                                     <input class="resena" type="text" name="resena" id="resena" placeholder="Reseña del Apartamento">
@@ -67,6 +67,11 @@
                         <h5 class='text-end mb-4'>
                             <?php echo $aparment['valor_noche'] ?> COP/noche
                         </h5>
+                        <div style="margin:5px auto;">
+                            <center>
+                                <?php echo $aparment['dir_google_maps'] ?>
+                            </center>
+                        </div>
                         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#update<?php echo $aparment['id_apartamentos'] ?>">
                             Editar
                         </button>
@@ -84,6 +89,8 @@
                                             <input class="ciudad" type="text" name="ciudad" id="ciudad" placeholder="Ciudad" value='<?php echo $aparment['ciudad'] ?>' required>
                                             <input class="pais" type="text" name="pais" id="pais" placeholder="País" value=<?php echo $aparment['pais'] ?> required>
                                             <input class="direccion" type="text" name="direccion" id="direccion" placeholder="Dirección" value='<?php echo $aparment['direccion'] ?>' required>
+                                            <input class="ubicacion" type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación en Google Maps"
+                                            value='<?php echo $aparment['dir_google_maps'] ?>' required>
                                             <input class="habitaciones" type="text" name="habitaciones" id="habitaciones" placeholder="Número de Habitaciones" value=<?php echo $aparment['numero_habitaciones'] ?> required>
                                             <input class="valor" type="text" name="valor" id="valor" placeholder="Valor por Noche" value=<?php echo $aparment['valor_noche'] ?> required>
                                             <input class="resena" type="text" name="resena" id="resena" value='<?php echo $aparment['resena'] ?>' placeholder="Reseña del Apartamento" rows="1">
